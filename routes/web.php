@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Users;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +14,57 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return redirect('/about');
 });
+
+/*Route::get('/abt', function () {
+    return view('about');
+});
+*/
+
+Route::get('/abt/{id}/{name}', function ($id,$name) {
+  //  echo $id . "  " .$name;
+
+    return view('about',['idd'=>$id,'nn'=>$name]);
+});
+
+
+Route::view('cnt','contact');
+
+// Calling User Controller index function
+//Route::get('user',[Users::class , 'index']);
+Route::get('user/{name}',[Users::class , 'index']);
+
+
+
+
+
+Route::view('about','about');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
